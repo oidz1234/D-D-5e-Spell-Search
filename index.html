@@ -23,13 +23,18 @@ body {
 </style>
 </head>
 <body>
-    <h1> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x.avif"> <img src="spells.gif"> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x.avif"> </h1>
+    <h1> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x"> <img src="spells.gif"> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x"> </h1>
 
         <input type="text" class="text-input" id="filter" placeholder="search e.g fireball" />
         <ul id='spell_list'></ul>
 
-        <img src="https://cdn.7tv.app/emote/610c298ad53540d5aad108ea/4x.avif">
+        <img src="https://cdn.7tv.app/emote/610c298ad53540d5aad108ea/4x">
         <marquee ><img src="https://web.archive.org/web/20090725174735im_/http://espanol.geocities.com/logia154/torch.gif">A <a href="https://mark.mcnally.je">Mark McNally</a> Project <img src="https://web.archive.org/web/20090725174735im_/http://espanol.geocities.com/logia154/torch.gif"></marquee>
+
+        <small> <a href="https://github.com/oidz1234/D-D-5e-Spell-Search">Source?</a> </small>
+
+
+
 <script>
     function get_data(yourUrl) {
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -71,9 +76,6 @@ body {
     search_box.addEventListener('keyup', spell_search);
 
 
-    function logKey(e) {
-        console.log(search_box.value)
-}
 
 
 
