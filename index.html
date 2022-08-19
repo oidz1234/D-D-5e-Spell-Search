@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    Display: flex;
+    Justify-content: center;
+    Align-items: center;
+    flex-direction: column;
+    background-color: lightgrey;
+    
+//    background-image: url('https://web.archive.org/web/20090725174735im_/http://espanol.geocities.com/logia154/torch.gif');
+
+}
+    li {
+        max-width: 85ch;
+    }
+    marquee, a {
+        color: red;
+    }
+
+</style>
+</head>
+<body>
+    <h1> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x.avif"> <img src="spells.gif"> <img src="https://cdn.7tv.app/emote/628eba7ec16865aa2bc6226b/4x.avif"> </h1>
+
+        <input type="text" class="text-input" id="filter" placeholder="search" />
+        <ul id='spell_list'></ul>
+
+        <img src="https://cdn.7tv.app/emote/610c298ad53540d5aad108ea/4x.avif">
+        <marquee ><img src="https://web.archive.org/web/20090725174735im_/http://espanol.geocities.com/logia154/torch.gif">A <a href="https://mark.mcnally.je">Mark McNally</a> Project <img src="https://web.archive.org/web/20090725174735im_/http://espanol.geocities.com/logia154/torch.gif"></marquee>
+<script>
+    function get_data(yourUrl) {
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;
+}
+    spells = JSON.parse(get_data('/data/spells.json'));
+
+    function spell_search() {
+        spell_list.textContent = ''
+        
+        search = search_box.value.toLowerCase();
+        for(spell of spells) {
+        if(spell.name.toLowerCase().includes(search)) {
+            console.log(search)
+            console.log(spell.name)
+            entry = document.createElement('li');
+            entry.appendChild(document.createTextNode(spell.name))
+            spell_text = document.createElement('p');
+            spell_text.appendChild(document.createTextNode(spell.desc))
+            spell_other = document.createElement('p');
+            spell_other.appendChild(document.createTextNode(`dc: ${spell.dc} level: ${spell.level} range: ${spell.range}`))
+            entry.appendChild(spell_text)
+            entry.appendChild(spell_other)
+            spell_list.appendChild(entry)
+        }
+    }
+    }
+
+
+    // get user input
+    // lower user input
+    // on user input run through spell search
+    // display full spells
+
+    search_box =  document.getElementById('filter')
+    spell_list = document.getElementById('spell_list')
+    search_box.addEventListener('keyup', spell_search);
+
+
+    function logKey(e) {
+        console.log(search_box.value)
+}
+
+
+
+</script>
+</body>
+</html>
